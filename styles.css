@@ -1,0 +1,182 @@
+body {
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    color: white;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.heart-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.heart {
+    width: 100px;
+    height: 100px;
+    background: red;
+    position: relative;
+    transform: rotate(-45deg);
+    animation: beat 1s infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    width: 100px;
+    height: 100px;
+    background: red;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before {
+    top: -50px;
+    left: 0;
+}
+
+.heart::after {
+    left: 50px;
+    top: 0;
+}
+
+@keyframes beat {
+    0%, 100% {
+        transform: scale(1) rotate(-45deg);
+    }
+    50% {
+        transform: scale(1.1) rotate(-45deg);
+    }
+}
+
+.message p {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+button {
+    padding: 15px 30px;
+    margin: 5px;
+    font-size: 18px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    background: #FFDEE9;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFDEE9, #B5FFFC);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFDEE9, #B5FFFC);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    color: #333;
+}
+
+#yesButton:hover {
+    background: #4CAF50;
+    color: white;
+}
+
+#noButton:hover {
+    background: #f44336;
+    color: white;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+.celebration-blast {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.celebration {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    opacity: 0;
+    animation: fall 1s forwards;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+@keyframes slide {
+    0% {
+        top: -100px;
+    }
+    100% {
+        top: 110%;
+    }
+}
+
+.flower, .chocolate, .teddy {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    animation: slide 20s linear infinite;
+    z-index: -1;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+}
+
+.popup-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: #333;
+}
+
+.popup-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.popup-content p {
+    font-size: 1.5em;
+}
